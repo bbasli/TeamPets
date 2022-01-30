@@ -16,7 +16,13 @@ export class UpdateDonationInput {
 }
 
 export class Donation {
-    exampleField?: Nullable<number>;
+    id: string;
+    count: number;
+    name: string;
+    email: string;
+    mobile: string;
+    team?: Nullable<string>;
+    message?: Nullable<string>;
 }
 
 export abstract class IQuery {
