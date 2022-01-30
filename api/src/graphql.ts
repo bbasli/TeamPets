@@ -11,7 +11,7 @@ export class CreateDonationInput {
     count: number;
     name: string;
     email: string;
-    mobile: string;
+    mobile?: Nullable<string>;
     team?: Nullable<string>;
     message?: Nullable<string>;
     createdAt?: Nullable<DateTime>;
@@ -26,7 +26,7 @@ export class Donation {
     count: number;
     name: string;
     email: string;
-    mobile: string;
+    mobile?: Nullable<string>;
     team?: Nullable<string>;
     message?: Nullable<string>;
     createdAt?: Nullable<DateTime>;
