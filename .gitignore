@@ -1,4 +1,4 @@
 api/node_modules
 api/dist
 **/.env
-api/prisma/db/**
+api/prisma/*.db
