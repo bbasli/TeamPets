@@ -4,6 +4,7 @@ import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { DonationsModule } from './donations/donations.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { AppService } from './app.service';
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
       typePaths: ['./**/*.graphql'],
     }),
+    DonationsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
