@@ -8,7 +8,13 @@
 /* tslint:disable */
 /* eslint-disable */
 export class CreateDonationInput {
-    exampleField?: Nullable<number>;
+    count: number;
+    name: string;
+    email: string;
+    mobile: string;
+    team?: Nullable<string>;
+    message?: Nullable<string>;
+    createdAt?: Nullable<DateTime>;
 }
 
 export class UpdateDonationInput {
@@ -23,6 +29,7 @@ export class Donation {
     mobile: string;
     team?: Nullable<string>;
     message?: Nullable<string>;
+    createdAt?: Nullable<DateTime>;
 }
 
 export abstract class IQuery {
@@ -39,4 +46,5 @@ export abstract class IMutation {
     abstract removeDonation(id: number): Nullable<Donation> | Promise<Nullable<Donation>>;
 }
 
+export type DateTime = any;
 type Nullable<T> = T | null;
