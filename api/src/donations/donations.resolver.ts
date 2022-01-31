@@ -30,4 +30,9 @@ export class DonationsResolver {
   remove(@Args('id') id: number) {
     return this.donationsService.remove(id);
   }
+
+  @Query('totalDonations')
+  totalDonations() {
+    return this.donationsService.getTotal();
+  }
 }

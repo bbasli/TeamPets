@@ -28,4 +28,14 @@ export class DonationsService {
   remove(id: number) {
     return `This action removes a #${id} donation`;
   }
+
+  async getTotal() {
+    const response = await this.prisma.donation.aggregate({
+      _sum: {
+        count: true,
+      },
+    });
+
+    return response._sum.count;
+  }
 }
