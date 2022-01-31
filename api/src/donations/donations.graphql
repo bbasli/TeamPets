@@ -41,3 +41,11 @@ type Mutation {
   updateDonation(updateDonationInput: UpdateDonationInput!): Donation!
   removeDonation(id: Int!): Donation
 }
+
+type Result {
+  total: Int!
+}
+
+type Subscription {
+  totalUpdated: Result!
+}
