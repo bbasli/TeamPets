@@ -1,5 +1,8 @@
 api/node_modules
 api/dist
-**/.env
 api/prisma/*.db
 api/src/@generated/**
+
+client/node_modules
+
+**/.env
