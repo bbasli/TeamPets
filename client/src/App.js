@@ -8,6 +8,14 @@ const TotalDonationsQuery = `
   }
 `;
 
+const TotalUpdatedQuery = `
+  subscription Subscription {
+    totalUpdated {
+      total
+    }
+  }
+`;
+
 function App() {
   const [{ data, fetching, error }] = useQuery({ query: TotalDonationsQuery });
 
