@@ -7,7 +7,9 @@ import reportWebVitals from './reportWebVitals';
 import { createClient, Provider, subscriptionExchange, defaultExchanges } from 'urql';
 import { createClient as createWSClient } from 'graphql-ws';
 
-const wsClient = createWSClient('ws://localhost:3001/graphql');
+const wsClient = createWSClient({
+  url: 'ws://localhost:3001/graphql',
+});
 
 const client = createClient({
   url: 'http://localhost:3001/graphql',
