@@ -4,6 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { createClient, Provider, subscriptionExchange, defaultExchanges } from 'urql';
+
+const client = createClient({
+  url: 'http://localhost:3001/graphql',
+});
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
