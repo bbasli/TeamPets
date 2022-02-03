@@ -25,7 +25,9 @@ const client = createClient({
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider value={client}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
