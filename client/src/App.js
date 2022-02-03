@@ -1,6 +1,19 @@
+import { useQuery } from 'urql';
+
 import { Counter } from "./components/Counter";
 
+const TotalDonationsQuery = `
+  query Query {
+    totalDonations
+  }
+`;
+
 function App() {
+  const [{ data, fetching, error }] = useQuery({ query: TotalDonationsQuery });
+
+  if (fetching) return <div>Loading...</div>;
+  if (error) return <div>Error!</div>;
+
   return (
     <div className="py-12 bg-white font-montserrat">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -12,7 +25,7 @@ function App() {
           <p className="mt-4 max-w-2xl text-lg text-gray-500 lg:mx-auto">
             We did it! Now let’s keep going. Come back anytime you feel like removing some trash!
           </p>
-          <Counter from={0} to={12312314} />
+          <Counter from={0} to={data.totalDonations} />
         </div>
       </div>
     </div>
