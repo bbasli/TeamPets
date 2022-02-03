@@ -1,4 +1,5 @@
-import { useQuery } from 'urql';
+import React from 'react';
+import { useQuery, useSubscription } from 'urql';
 
 import { Counter } from "./components/Counter";
 
@@ -16,8 +17,16 @@ const TotalUpdatedQuery = `
   }
 `;
 
+const handleSubscription = (_, newTotal) => {
+  return newTotal?.totalUpdated?.total;
+};
+
+
 function App() {
+  const [res] = useSubscription({ query: TotalUpdatedQuery }, handleSubscription);
+
   const [{ data, fetching, error }] = useQuery({ query: TotalDonationsQuery });
+
 
   if (fetching) return <div>Loading...</div>;
   if (error) return <div>Error!</div>;
@@ -33,7 +42,7 @@ function App() {
           <p className="mt-4 max-w-2xl text-lg text-gray-500 lg:mx-auto">
             We did it! Now let’s keep going. Come back anytime you feel like removing some trash!
           </p>
-          <Counter from={0} to={data.totalDonations} />
+          <Counter from={0} to={res.data || data.totalDonations} />
         </div>
       </div>
     </div>
