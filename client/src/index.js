@@ -11,6 +11,16 @@ const wsClient = createWSClient('ws://localhost:3001/graphql');
 
 const client = createClient({
   url: 'http://localhost:3001/graphql',
+  exchanges: [
+    ...defaultExchanges,
+    subscriptionExchange({
+      forwardSubscription: operation => ({
+        subscribe: (sink) => ({
+          unsubscribe: wsClient.subscribe(operation, sink),
+        }),
+      }),
+    }),
+  ]
 });
 
 ReactDOM.render(
